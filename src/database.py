@@ -7,9 +7,10 @@ database = MySQLDatabase(
     user=config('MYSQL_USER'), 
     password=config('MYSQL_PASSWORD'),
     host=config('MYSQL_HOST'), 
-    port=config('MYSQL_PORT')
+    port=3306
 )
 
+# Model
 class User(Model):
     username = CharField(max_length=50)
     email = CharField(max_length=50)

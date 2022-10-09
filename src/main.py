@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 
 # Database
+from src.database import User
 from src.database import database as connection
 
 
@@ -15,6 +16,8 @@ app = FastAPI(title='Practice API',
 def startup():
     if connection.is_closed():
         connection.connect()
+    
+    connection.create_tables([User])
 
 @app.on_event('shutdown')
 def shutdown():
